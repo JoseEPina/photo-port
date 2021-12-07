@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import Nav from './components/Nav';
 import About from './components/About';
 import Gallery from './components/Gallery';
-import './App.css';
 
 function App() {
    const [categories] = useState([
       {
-         name: 'Commercial',
+         name: 'commercial',
          description: 'Photos of grocery stores, food trucks, and other commercial projects',
       },
-      { name: 'Portraits', description: 'Portraits of peoplen in my life' },
-      { name: 'Food', description: 'Delicious delicacies' },
-      { name: 'Landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
+      { name: 'portraits', description: 'Portraits of peoplen in my life' },
+      { name: 'food', description: 'Delicious delicacies' },
+      { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
    ]);
 
    const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
+   console.log('currentCategory', currentCategory);
    return (
       <div>
          <Nav //
@@ -25,8 +25,10 @@ function App() {
             currentCategory={currentCategory}
          ></Nav>
          <main>
-            <Gallery></Gallery>
-            <About></About>
+            <div>
+               <Gallery currentCategory={currentCategory}></Gallery>
+               <About></About>
+            </div>
          </main>
       </div>
    );
